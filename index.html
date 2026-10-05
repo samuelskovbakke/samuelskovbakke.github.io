@@ -3,25 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Samuel Skovbakke — Computer Scientist</title>
+<title>Samuel Skovbakke - Computer Scientist</title>
 <meta name="description" content="Samuel Skovbakke — programming languages, cryptology, and systems. MSc Computer Science, Aarhus University." />
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  /* Applied before paint to avoid a flash of the wrong theme. */
+  (function () {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  })();
+</script>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="mark" href="#top">samuel<span class="dim">.</span>dev</a>
-  <nav>
-    <a href="#about">about</a>
-    <a href="#research">research</a>
-    <a href="#projects">projects</a>
-    <a href="#experience">experience</a>
-    <a href="#contact">contact</a>
-  </nav>
+  <div class="site-header-inner">
+    <a class="mark" href="#top">samuel<span class="dim">.</span>dev</a>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#research">research</a>
+      <a href="#projects">projects</a>
+      <a href="#experience">experience</a>
+      <a href="#contact">contact</a>
+      <button id="theme-toggle" type="button" aria-label="Switch color theme">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
@@ -33,7 +47,7 @@
     </p>
     <h1>Samuel Skovbakke</h1>
     <p class="tagline">
-      I build systems that explain themselves — compilers with diagnostics
+      I build systems that explain themselves - compilers with diagnostics
       worth reading, infrastructure defined as code, and the odd
       educational spaceship game.
     </p>
@@ -69,7 +83,7 @@
     <div class="block-body">
       <article class="entry">
         <h3>Tracing Effect Mismatches</h3>
-        <p class="meta">Master's thesis — Aarhus University</p>
+        <p class="meta">Master's thesis - Aarhus University</p>
         <p>
           Flix's effect system produces technically correct but often
           unreadable Boolean-algebra errors. My thesis works through three
@@ -122,9 +136,9 @@
     <div class="block-head"><span class="num">04</span><h2>Experience</h2></div>
     <div class="block-body">
       <article class="entry row">
-        <p class="meta col-date">2024–2026</p>
+        <p class="meta col-date">2024-2026</p>
         <div class="col-main">
-          <h3>Webmaster &amp; Sales Assistant — Vinspecialisten / Pibehuset Aarhus C</h3>
+          <h3>Webmaster &amp; Sales Assistant - Vinspecialisten / Pibehuset Aarhus C</h3>
           <p>
             Owned the company website end to end, front- and backend.
             Implemented MitID authentication and nShift API integrations
@@ -134,9 +148,9 @@
         </div>
       </article>
       <article class="entry row">
-        <p class="meta col-date">2019–2024</p>
+        <p class="meta col-date">2019-2024</p>
         <div class="col-main">
-          <h3>Youth Leader at LOUD</h3>
+          <h3>Youth Worker - LOUD</h3>
           <p>
             Planned and ran youth programmes and events. Mentored
             participants, coordinated logistics and communication across
@@ -160,13 +174,16 @@
 </main>
 
 <footer id="contact" class="site-footer">
-  <p>Based in Aarhus, Denmark. Open to opportunities in programming languages, security, and systems.</p>
-  <p class="links">
-    <a href="mailto:samuel@skovbakke.dk">samuel@skovbakke.dk</a>
-    <a href="https://github.com/samuelskovbakke" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/samuel-skovbakke/" target="_blank" rel="noopener">LinkedIn</a>
-  </p>
+  <div class="site-footer-inner">
+    <p>Based in Aarhus, Denmark. Open to opportunities in programming languages, security, and systems.</p>
+    <p class="links">
+      <a href="mailto:samuel@skovbakke.dk">samuel@skovbakke.dk</a>
+      <a href="https://github.com/samuelskovbakke" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/samuel-skovbakke/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>

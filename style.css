@@ -165,13 +165,22 @@ a { color: var(--accent); }
 
 /* Sections */
 .block {
+  position: relative;
   padding: clamp(2.5rem, 6vw, 3.5rem) var(--gutter);
-  border-top: 1px solid var(--line);
-}
-.block-head,
-.block-body {
   max-width: var(--page);
   margin-inline: auto;
+}
+/* Full-bleed divider: breaks out of the centered max-width to span the
+   whole viewport, while the block's own content stays aligned with the
+   hero above it. */
+.block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  border-top: 1px solid var(--line);
 }
 .block-head {
   display: flex;
@@ -231,10 +240,20 @@ a { color: var(--accent); }
 
 /* Footer */
 .site-footer {
+  position: relative;
   padding: 2.5rem var(--gutter) 3.5rem;
+  max-width: var(--page);
+  margin-inline: auto;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
   border-top: 1px solid var(--line);
 }
-.site-footer-inner { max-width: var(--page); margin-inline: auto; }
 .site-footer p { max-width: 50ch; }
 .site-footer .links { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.85rem; }
 .site-footer .links a { text-decoration: none; border-bottom: 1px solid transparent; }

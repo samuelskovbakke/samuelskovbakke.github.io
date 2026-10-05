@@ -1,3 +1,4 @@
+/* Design tokens */
 :root {
   --paper:      #faf8f2;
   --ink:        #1b1f1c;
@@ -12,6 +13,7 @@
 
   --measure: 62ch;
   --gutter: clamp(1.25rem, 4vw, 3rem);
+  --page: 1040px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,19 +56,23 @@ a { color: var(--accent); }
 
 /* Header */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem var(--gutter);
-  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
   z-index: 10;
 }
+.site-header-inner {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .mark { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); text-decoration: none; }
-.site-header nav { display: flex; gap: clamp(0.75rem, 2vw, 1.5rem); flex-wrap: wrap; }
+.site-header nav { display: flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.5rem); flex-wrap: wrap; }
 .site-header nav a {
   text-decoration: none;
   color: var(--ink-soft);
@@ -78,10 +84,29 @@ a { color: var(--accent); }
 .site-header nav a:hover,
 .site-header nav a:focus-visible { color: var(--ink); border-color: var(--accent); }
 
+#theme-toggle {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  width: 2em;
+  height: 2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+#theme-toggle:hover, #theme-toggle:focus-visible { border-color: var(--accent); color: var(--accent-ink); }
+
 /* Hero */
 .hero {
   padding: clamp(3rem, 10vw, 7rem) var(--gutter) clamp(2.5rem, 6vw, 4rem);
-  max-width: 920px;
+  max-width: var(--page);
+  margin-inline: auto;
 }
 .sig {
   font-family: var(--font-mono);
@@ -142,7 +167,11 @@ a { color: var(--accent); }
 .block {
   padding: clamp(2.5rem, 6vw, 3.5rem) var(--gutter);
   border-top: 1px solid var(--line);
-  max-width: 1040px;
+}
+.block-head,
+.block-body {
+  max-width: var(--page);
+  margin-inline: auto;
 }
 .block-head {
   display: flex;
@@ -205,6 +234,7 @@ a { color: var(--accent); }
   padding: 2.5rem var(--gutter) 3.5rem;
   border-top: 1px solid var(--line);
 }
+.site-footer-inner { max-width: var(--page); margin-inline: auto; }
 .site-footer p { max-width: 50ch; }
 .site-footer .links { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.85rem; }
 .site-footer .links a { text-decoration: none; border-bottom: 1px solid transparent; }
